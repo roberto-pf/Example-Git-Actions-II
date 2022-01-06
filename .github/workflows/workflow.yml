@@ -1,8 +1,8 @@
 name: Compile with other repo dependency
 on: [push]
 env:
-  DEPENDENCY_REPOSITORY: "roberto-pf/demo-model"
-  DEPENDENCY_PATH: "demo-model"
+  DEPENDENCY_REPOSITORY: "roberto-pf/Example-Git-Actions"
+  DEPENDENCY_PATH: "Example-Git-Actions"
   DEPENDENCY_REF: "example-2"
 jobs:
   compile-mvn:
@@ -22,10 +22,10 @@ jobs:
             path:  ${{env.DEPENDENCY_PATH}}
             ref:  ${{env.DEPENDENCY_REF}}             
             
-        - name: Build with Maven repo demo-model
-          working-directory: ./demo-model/example2-gitactions-model
+        - name: Build with Maven repo roberto-pf/Example-Git-Actions project example2-gitactions-model
+          working-directory: ./Example-Git-Actions/example2-gitactions-model
           run: |
             mvn -B install --file pom.xml
             
-        - name: Build with Maven repo demo
-          run: mvn -B package --file pom.xml
+        - name: Build with Maven repo roberto-pf/Example-Git-Actions-II project example2-gitactions
+          run: mvn -B package --file example2-gitactions/pom.xml
