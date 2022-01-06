@@ -22,7 +22,7 @@ jobs:
         - name: extract repositories to array
           id: set_var
           run: |
-            content=`cat ./example2-gitactions/dependencies.json`
+            content=`cat ./example2-gitactions/dependencies-one-line.json`
             echo "::set-output name=jsonDep::$content"
             
         - name: print repositories
