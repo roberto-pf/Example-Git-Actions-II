@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>es.com.disastercode.gitactions</groupId>
 	<artifactId>example2</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>example2</name>
 	<description>Demo project for Spring Boot</description>
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>es.com.disastercode.gitactions</groupId>
 			<artifactId>example2-model</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
