@@ -27,8 +27,8 @@ jobs:
             
         - name: print repositories
           run: |
-            echo: "${{fromJson(steps.set_var.outputs.jsonDep).dependencies[0].repository}}"
-            echo: "${{fromJson(steps.set_var.outputs.jsonDep).dependencies[1].repository}}"
+            echo "${{fromJson(steps.set_var.outputs.jsonDep).dependencies[0].repository}}"
+            echo "${{fromJson(steps.set_var.outputs.jsonDep).dependencies[1].repository}}"
 
 
 
