@@ -2,6 +2,9 @@
    "dependencies":[
       {
          "repository":"roberto-pf/Example-Git-Actions"
+      },
+      {
+         "repository":"roberto-pf/Example-Git-Actions-II"
       }
    ]
 }
