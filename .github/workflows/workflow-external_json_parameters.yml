@@ -1,16 +1,34 @@
 name: Read External JSON
 on: [push]
 jobs:
-  compile-mvn:
+  read-json-with-jq:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
 
-        - id: set_var
+        - name: extract repositories to file
           run: |
             content=`cat ./example2-gitactions/dependencies.json`
             echo "$(jq -r '.dependencies[].repository' <<< "$content")" >> aux.txt
-        - name: print repo
+            
+        - name: print repositories
           run: cat aux.txt
+
+  read-json: 
+       runs-on: ubuntu-latest
+       steps:
+        - uses: actions/checkout@v2
+        
+        - name: extract repositories to array
+          id: set_var
+          run: |
+            content=`cat ./example2-gitactions/dependencies.json`
+            echo "::set-output name=jsonDep::$content"
+            
+        - name: print repositories
+          run: |
+            echo: "${{fromJson(steps.set_var.outputs.jsonDep).dependencies[0].repository}}"
+            echo: "${{fromJson(steps.set_var.outputs.jsonDep).dependencies[1].repository}}"
+
 
 
