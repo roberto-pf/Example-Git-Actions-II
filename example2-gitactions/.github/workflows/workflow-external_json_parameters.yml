@@ -1,0 +1,15 @@
+name: Read External JSON
+on: [push]
+jobs:
+  compile-mvn:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+
+        - id: set_var
+          run: |
+            content=`cat ./dependencies.json`
+            echo "::set-output name=jsonDep::$content"
+            echo ${{fromJson(steps.set_var.outputs.jsonDep).dependencies[0].repository}}
+
+

@@ -1,0 +1,31 @@
+name: Compile with other repo dependency
+on: [push]
+env:
+  DEPENDENCY_REPOSITORY: "roberto-pf/demo-model"
+  DEPENDENCY_PATH: "demo-model"
+  DEPENDENCY_REF: "feature/prueba"
+jobs:
+  compile-mvn:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2          
+        
+        - name: Set up JDK 1.11
+          uses: actions/setup-java@v1
+          with:
+            java-version: 1.11
+          
+        - name: Checkout cross repo
+          uses: actions/checkout@v2
+          with:
+            repository:  ${{env.DEPENDENCY_REPOSITORY}}
+            path:  ${{env.DEPENDENCY_PATH}}
+            ref:  ${{env.DEPENDENCY_REF}}             
+            
+        - name: Build with Maven repo demo-model
+          working-directory: ./demo-model
+          run: |
+            mvn -B install --file pom.xml
+            
+        - name: Build with Maven repo demo
+          run: mvn -B package --file pom.xml
