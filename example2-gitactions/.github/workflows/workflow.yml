@@ -23,7 +23,7 @@ jobs:
             ref:  ${{env.DEPENDENCY_REF}}             
             
         - name: Build with Maven repo demo-model
-          working-directory: ./demo-model
+          working-directory: ./demo-model/example2-gitactions-model
           run: |
             mvn -B install --file pom.xml
             
