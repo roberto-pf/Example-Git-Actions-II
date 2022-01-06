@@ -3,7 +3,7 @@ on: [push]
 env:
   DEPENDENCY_REPOSITORY: "roberto-pf/demo-model"
   DEPENDENCY_PATH: "demo-model"
-  DEPENDENCY_REF: "feature/prueba"
+  DEPENDENCY_REF: "example-2"
 jobs:
   compile-mvn:
       runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
             ref:  ${{env.DEPENDENCY_REF}}             
             
         - name: Build with Maven repo demo-model
-          working-directory: ./demo-model
+          working-directory: ./demo-model/example2-gitactions-model
           run: |
             mvn -B install --file pom.xml
             
