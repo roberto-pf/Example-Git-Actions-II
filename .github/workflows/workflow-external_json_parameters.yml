@@ -10,6 +10,6 @@ jobs:
           run: |
             content=`cat ./example2-gitactions/dependencies.json`
             echo "::set-output name=jsonDep::$content"
-            echo ${{fromJson(steps.set_var.outputs.jsonDep).dependencies[0].repository}}
+            echo "${{fromJson(steps.set_var.outputs.jsonDep).dependencies[0].repository}}"
 
 
