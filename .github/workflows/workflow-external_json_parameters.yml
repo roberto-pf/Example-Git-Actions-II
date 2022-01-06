@@ -11,6 +11,6 @@ jobs:
             content=`cat ./example2-gitactions/dependencies.json`
             echo "::set-output name=jsonDep::$(jq -r '.dependencies[].repository' <<< "$content")"
         - name: print repo
-          run: echo "${{steps.set_var.outputs.jsonDep[0]}}"
+          run: echo "${{steps.set_var.outputs.jsonDep}}"
 
 
